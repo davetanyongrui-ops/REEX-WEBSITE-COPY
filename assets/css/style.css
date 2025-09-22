@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* Custom styles for REEX multi-page website */
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.service-card:hover,
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Language switcher styles */
+.language-switcher {
+    position: relative;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: 160px;
+    margin-top: 4px;
+    z-index: 1000;
+}
+
+.language-switcher:hover .language-dropdown,
+.language-dropdown:hover {
+    display: block;
+}
+
+.language-switcher .language-dropdown {
+    transition: opacity 0.2s ease;
+}
+
+/* Timeline styles for about page */
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(30, 64, 175, 0.2), rgba(30, 64, 175, 0.8), rgba(30, 64, 175, 0.2));
+}
+
+/* Page transitions */
+.page-transition {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.page-transition.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Active navigation state */
+.nav-active {
+    color: #1E40AF !important;
+    font-weight: 600;
+}
+
+/* Enhanced text readability */
+.text-high-contrast {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+}
+
+.text-content-readable {
+    color: #1f2937 !important;
+    line-height: 1.7;
+}
+
+.text-gray-readable {
+    color: #374151 !important;
+}
+
+/* Page header text enhancement */
+.page-header-text {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    font-weight: 700;
+}
+
+.page-header-subtitle {
+    color: #f3f4f6 !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+}

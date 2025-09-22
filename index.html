@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REEX - Where Real Estate Meet and Exchange</title>
+    <meta name="description" content="Boutique real estate agency specializing in cross-border investments across Batam, Singapore, Johor, Malaysia, and Dubai">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        secondary: '#1E3A8A',
+                        accent: '#3B82F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white bg-opacity-85 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-1">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity duration-300 cursor-pointer">
+                        <img src="https://i.imgur.com/KZwMkoB.png" alt="REEX Logo" class="h-32 w-auto">
+                    </a>
+                    <span class="ml-3 text-sm text-primary font-semibold hidden md:block bg-blue-50 px-3 py-1 rounded-full" data-en="Where Real Estate Meet and Exchange" data-id="Tempat Real Estate Bertemu dan Bertukar">Where Real Estate Meet and Exchange</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-12">
+                    <a href="index.html" class="text-primary font-medium nav-active px-3 py-2 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Home" data-id="Beranda">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="About Us" data-id="Tentang Kami">About Us</a>
+                    <a href="services.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Services" data-id="Layanan">Services</a>
+                    <a href="properties.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Properties" data-id="Properti">Properties</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Contact" data-id="Kontak">Contact</a>
+                    
+                    <div class="language-switcher ml-4">
+                        <button class="flex items-center text-gray-700 hover:text-primary transition-colors duration-200" id="language-button">
+                            <i data-feather="globe" class="w-4 h-4 mr-1"></i>
+                            <span id="current-lang">English</span>
+                            <i data-feather="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="language-dropdown bg-white shadow-lg rounded-lg border border-gray-200 mt-2 py-2 overflow-hidden">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200" onclick="switchLanguage('en'); return false;">🇺🇸 English</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200" onclick="switchLanguage('id'); return false;">🇮🇩 Bahasa Indonesia</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden py-2" id="mobile-menu">
+                <a href="index.html" class="block py-2 px-4 text-primary font-medium nav-active" data-en="Home" data-id="Beranda">Home</a>
+                <a href="about.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="About Us" data-id="Tentang Kami">About Us</a>
+                <a href="services.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="Services" data-id="Layanan">Services</a>
+                <a href="properties.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="Properties" data-id="Properti">Properties</a>
+                <a href="contact.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="Contact" data-id="Kontak">Contact</a>
+                <div class="px-4 py-2">
+                    <select class="w-full border rounded px-3 py-2 text-sm" id="mobile-language-select">
+                        <option value="en">English</option>
+                        <option value="id">Bahasa Indonesia</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-3" data-en="Welcome to REEX" data-id="Selamat Datang di REEX">Welcome to REEX</h1>
+            <h2 class="text-2xl md:text-3xl font-medium mb-8 text-blue-100" data-en="Where Real Estate Meet and Exchange" data-id="Tempat Real Estate Bertemu dan Bertukar">Where Real Estate Meet and Exchange</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="contact.html" class="bg-primary hover:bg-secondary text-white font-medium py-3 px-8 rounded-lg transition duration-300" data-en="Book a Consultation" data-id="Pesan Konsultasi">Book a Consultation</a>
+                <a href="services.html" class="bg-white hover:bg-gray-100 text-primary font-medium py-3 px-8 rounded-lg transition duration-300" data-en="Our Services" data-id="Layanan Kami">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About REEX Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl font-heading font-bold mb-4 text-primary" data-en="About REEX" data-id="Tentang REEX">About REEX</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto"></div>
+                </div>
+                
+                <div class="space-y-6 text-gray-700 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-base" data-en="At REEX, we are more than just a property agency. We are a team of forward thinking Real Estate Consultants collectively driven by professionalism, precision and purpose. Strategically based in Riau Islands - Batam, Indonesia, REEX is uniquely positioned at the crossroads of opportunity, leveraging regional growth in Singapore, Indonesia and Malaysia while upholding the highest standards of integrity and service." data-id="Di REEX, kami lebih dari sekadar agen properti. Kami adalah tim Konsultan Real Estate berpikiran maju yang secara kolektif didorong oleh profesionalisme, presisi, dan tujuan. Berkedudukan strategis di Kepulauan Riau - Batam, Indonesia, REEX berposisi unik di persimpangan peluang, memanfaatkan pertumbuhan regional di Singapura, Indonesia, dan Malaysia sambil menjunjung standar integritas dan layanan tertinggi.">At REEX, we are more than just a property agency. We are a team of forward thinking Real Estate Consultants collectively driven by professionalism, precision and purpose. Strategically based in Riau Islands - Batam, Indonesia, REEX is uniquely positioned at the crossroads of opportunity, leveraging regional growth in Singapore, Indonesia and Malaysia while upholding the highest standards of integrity and service.</p>
+                    
+                    <p class="text-base" data-en="Wholly owned by SRP Indonesia (Sinar Rimba Persada group), what sets REEX apart is our distinguished board of advisors, comprising Singapore licensed real estate agents and seasoned investors. Their deep expertise and proven track record guide our operations, allowing us to seamlessly integrate the Singapore Professional Standard and Code of Ethics into every facet of our business. This ensures that every transaction, from property consultation to closing, is handled with transparency, accountability and exceptional care." data-id="Sepenuhnya dimiliki oleh SRP Indonesia (grup Sinar Rimba Persada), yang membedakan REEX adalah dewan penasihat terkemuka kami, yang terdiri dari agen real estate berlisensi Singapura dan investor berpengalaman. Keahlian mendalam dan rekam jejak terbukti mereka memandu operasi kami, memungkinkan kami untuk secara mulus mengintegrasikan Standar Profesional dan Kode Etik Singapura ke dalam setiap aspek bisnis kami. Hal ini memastikan bahwa setiap transaksi, dari konsultasi properti hingga penutupan, ditangani dengan transparansi, akuntabilitas, dan perhatian luar biasa.">Wholly owned by SRP Indonesia (Sinar Rimba Persada group), what sets REEX apart is our distinguished board of advisors, comprising Singapore licensed real estate agents and seasoned investors. Their deep expertise and proven track record guide our operations, allowing us to seamlessly integrate the Singapore Professional Standard and Code of Ethics into every facet of our business. This ensures that every transaction, from property consultation to closing, is handled with transparency, accountability and exceptional care.</p>
+                    
+                    <p class="text-base" data-en="By blending local market knowledge with Singapore's renowned professionalism, REEX delivers a unique standard of service that inspires confidence and drives results." data-id="Dengan memadukan pengetahuan pasar lokal dengan profesionalisme terkenal Singapura, REEX memberikan standar layanan unik yang menginspirasi kepercayaan dan mendorong hasil.">By blending local market knowledge with Singapore's renowned professionalism, REEX delivers a unique standard of service that inspires confidence and drives results.</p>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-primary mt-8">
+                        <p class="text-base font-medium text-gray-800" data-en="Whether you are a first time buyer, seasoned investor or international stakeholder looking to tap into the region's growing real estate potential, with REEX, you're not just making a property decision, but a smart, ethical and forward looking investment because with our focused approach on quality over quantity, each client will receive our personalized and insightful guidance and attention." data-id="Baik Anda pembeli pertama kali, investor berpengalaman, atau pemangku kepentingan internasional yang ingin memanfaatkan potensi real estate yang berkembang di wilayah ini, dengan REEX, Anda tidak hanya membuat keputusan properti, tetapi investasi yang cerdas, etis, dan berpandangan ke depan karena dengan pendekatan terfokus kami pada kualitas daripada kuantitas, setiap klien akan menerima bimbingan dan perhatian yang dipersonalisasi dan berwawasan.">Whether you are a first time buyer, seasoned investor or international stakeholder looking to tap into the region's growing real estate potential, with REEX, you're not just making a property decision, but a smart, ethical and forward looking investment because with our focused approach on quality over quantity, each client will receive our personalized and insightful guidance and attention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Overview Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-heading font-bold mb-4 text-primary" data-en="Cross-Border Real Estate Excellence" data-id="Keunggulan Real Estate Lintas Negara">Cross-Border Real Estate Excellence</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-en="Connecting global investors with prime opportunities across strategic markets" data-id="Menghubungkan investor global dengan peluang utama di pasar strategis">Connecting global investors with prime opportunities across strategic markets</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center bg-white p-8 rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="star" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3" data-en="Professional Standards" data-id="Standar Profesional">Professional Standards</h3>
+                    <p class="text-gray-600" data-en="Singapore's high professional standards and global code of ethics" data-id="Standar profesional tinggi Singapura dan kode etik global">Singapore's high professional standards and global code of ethics</p>
+                </div>
+                
+                <div class="text-center bg-white p-8 rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="globe" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3" data-en="Cross-Border Expertise" data-id="Keahlian Lintas Negara">Cross-Border Expertise</h3>
+                    <p class="text-gray-600" data-en="Multiple countries and jurisdictions expertise" data-id="Keahlian di berbagai negara dan yurisdiksi">Multiple countries and jurisdictions expertise</p>
+                </div>
+                
+                <div class="text-center bg-white p-8 rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="shield" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3" data-en="SRP Indonesia Ownership" data-id="Kepemilikan SRP Indonesia">SRP Indonesia Ownership</h3>
+                    <p class="text-gray-600" data-en="Established reputation and financial stability" data-id="Reputasi mapan dan stabilitas keuangan">Established reputation and financial stability</p>
+                </div>
+                
+                <div class="text-center bg-white p-8 rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="users" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3" data-en="Boutique Approach" data-id="Pendekatan Butik">Boutique Approach</h3>
+                    <p class="text-gray-600" data-en="Personalized attention and tailored solutions" data-id="Perhatian personal dan solusi yang disesuaikan">Personalized attention and tailored solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Markets Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-heading font-bold mb-4 text-primary" data-en="Our Markets" data-id="Pasar Kami">Our Markets</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-en="Strategic locations across Southeast Asia and the Middle East" data-id="Lokasi strategis di Asia Tenggara dan Timur Tengah">Strategic locations across Southeast Asia and the Middle East</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div class="text-center p-8 bg-white rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🇮🇩</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3 text-primary">Indonesia – Batam</h3>
+                    <p class="text-gray-700 text-base leading-relaxed" data-en="Batam is a rapidly growing investment hub in Indonesia, strategically located near Singapore and Malaysia. With lower land and property costs, strong infrastructure development, and steady rental demand, Batam provides excellent opportunities for investors seeking both capital appreciation and reliable returns." data-id="Batam adalah hub investasi yang berkembang pesat di Indonesia, berlokasi strategis dekat Singapura dan Malaysia. Dengan biaya tanah dan properti yang lebih rendah, pengembangan infrastruktur yang kuat, dan permintaan sewa yang stabil, Batam memberikan peluang luar biasa bagi investor yang mencari apresiasi modal dan keuntungan yang dapat diandalkan.">Batam is a rapidly growing investment hub in Indonesia, strategically located near Singapore and Malaysia. With lower land and property costs, strong infrastructure development, and steady rental demand, Batam provides excellent opportunities for investors seeking both capital appreciation and reliable returns.</p>
+                </div>
+                
+                <div class="text-center p-8 bg-white rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🇲🇾</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3 text-primary">Malaysia – Johor</h3>
+                    <p class="text-gray-700 text-base leading-relaxed" data-en="Johor offers investors a unique combination of affordability and growth potential, benefiting from its proximity to Singapore. The region provides favorable conditions for foreign property ownership, emerging high-demand residential and commercial zones, and attractive opportunities for cross-border investment." data-id="Johor menawarkan investor kombinasi unik antara keterjangkauan dan potensi pertumbuhan, mendapat manfaat dari kedekatannya dengan Singapura. Wilayah ini memberikan kondisi yang menguntungkan untuk kepemilikan properti asing, zona residensial dan komersial yang berkembang dengan permintaan tinggi, dan peluang menarik untuk investasi lintas negara.">Johor offers investors a unique combination of affordability and growth potential, benefiting from its proximity to Singapore. The region provides favorable conditions for foreign property ownership, emerging high-demand residential and commercial zones, and attractive opportunities for cross-border investment.</p>
+                </div>
+                
+                <div class="text-center p-8 bg-white rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🇸🇬</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3 text-primary">Singapore</h3>
+                    <p class="text-gray-700 text-base leading-relaxed" data-en="Singapore is a global real estate powerhouse known for its stability, transparent regulations, and strong legal framework. Investors benefit from secure, long-term opportunities with consistent rental yields, making it a low-risk and highly desirable market for both residential and commercial properties." data-id="Singapura adalah kekuatan real estate global yang dikenal karena stabilitas, regulasi yang transparan, dan kerangka hukum yang kuat. Investor mendapat manfaat dari peluang jangka panjang yang aman dengan hasil sewa yang konsisten, menjadikannya pasar berisiko rendah dan sangat diinginkan untuk properti residensial dan komersial.">Singapore is a global real estate powerhouse known for its stability, transparent regulations, and strong legal framework. Investors benefit from secure, long-term opportunities with consistent rental yields, making it a low-risk and highly desirable market for both residential and commercial properties.</p>
+                </div>
+                
+                <div class="text-center p-8 bg-white rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl">🇦🇪</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3 text-primary">Dubai, UAE</h3>
+                    <p class="text-gray-700 text-base leading-relaxed" data-en="Dubai attracts international investors with its tax-free policies, world-class infrastructure, and dynamic property market. Offering high returns and portfolio diversification, Dubai remains a prime destination for global investors seeking luxury, commercial, and high-growth real estate opportunities." data-id="Dubai menarik investor internasional dengan kebijakan bebas pajak, infrastruktur kelas dunia, dan pasar properti yang dinamis. Menawarkan keuntungan tinggi dan diversifikasi portofolio, Dubai tetap menjadi tujuan utama bagi investor global yang mencari peluang real estate mewah, komersial, dan pertumbuhan tinggi.">Dubai attracts international investors with its tax-free policies, world-class infrastructure, and dynamic property market. Offering high returns and portfolio diversification, Dubai remains a prime destination for global investors seeking luxury, commercial, and high-growth real estate opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-heading font-bold mb-4" data-en="Ready to Explore Cross-Border Opportunities?" data-id="Siap Menjelajahi Peluang Lintas Negara?">Ready to Explore Cross-Border Opportunities?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-en="Connect with our expert team to discuss your real estate investment goals" data-id="Hubungi tim ahli kami untuk membahas tujuan investasi real estate Anda">Connect with our expert team to discuss your real estate investment goals</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="contact.html" class="bg-white text-primary hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition duration-300" data-en="Contact Us Today" data-id="Hubungi Kami Hari Ini">Contact Us Today</a>
+                <a href="properties.html" class="border-2 border-white text-white hover:bg-white hover:text-primary font-medium py-3 px-8 rounded-lg transition duration-300" data-en="View Properties" data-id="Lihat Properti">View Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl font-heading font-bold mb-4">REEX</h3>
+                    <p class="text-gray-400 mb-4" data-en="Where Real Estate Meet and Exchange" data-id="Tempat Real Estate Bertemu dan Bertukar">Where Real Estate Meet and Exchange</p>
+                    <p class="text-gray-400" data-en="Boutique real estate agency specializing in cross-border investments." data-id="Agen real estate butik yang mengkhususkan diri dalam investasi lintas negara.">Boutique real estate agency specializing in cross-border investments.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold mb-4" data-en="Quick Links" data-id="Tautan Cepat">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition" data-en="Home" data-id="Beranda">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition" data-en="About Us" data-id="Tentang Kami">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition" data-en="Services" data-id="Layanan">Services</a></li>
+                        <li><a href="properties.html" class="text-gray-400 hover:text-white transition" data-en="Properties" data-id="Properti">Properties</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition" data-en="Contact" data-id="Kontak">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold mb-4" data-en="Services" data-id="Layanan">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Investment Advisory</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Property Scouting</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Due Diligence</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Asset Management</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold mb-4" data-en="Contact Us" data-id="Hubungi Kami">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-2"></i>
+                            <span>Anggrek Mas 3 Blok A6 37, Batam Center</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                            <span>ask@reex.co.id</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-4 h-4 mr-2"></i>
+                            <span>+62 857 6677 5757</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.facebook.com/profile.php?id=100095464770735" target="_blank" class="text-gray-400 hover:text-white transition"><i data-feather="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 REEX Real Estate. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Code of Ethics</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

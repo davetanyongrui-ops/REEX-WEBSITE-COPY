@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - REEX Real Estate</title>
+    <meta name="description" content="Comprehensive cross-border real estate services including investment advisory, property scouting, due diligence, and asset management">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        secondary: '#1E3A8A',
+                        accent: '#3B82F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white bg-opacity-85 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity duration-300 cursor-pointer">
+                        <img src="https://i.imgur.com/QyeYVR3.jpeg" alt="REEX Logo" class="h-10 w-auto">
+                    </a>
+                    <span class="ml-3 text-sm text-primary font-semibold hidden md:block bg-blue-50 px-3 py-1 rounded-full" data-en="Where Real Estate Meet and Exchange" data-id="Tempat Real Estate Bertemu dan Bertukar">Where Real Estate Meet and Exchange</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-12">
+                    <a href="index.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Home" data-id="Beranda">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="About Us" data-id="Tentang Kami">About Us</a>
+                    <a href="services.html" class="text-primary font-medium nav-active px-3 py-2 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Services" data-id="Layanan">Services</a>
+                    <a href="properties.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Properties" data-id="Properti">Properties</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Contact" data-id="Kontak">Contact</a>
+                    
+                    <div class="language-switcher ml-4">
+                        <button class="flex items-center text-gray-700 hover:text-primary transition-colors duration-200" id="language-button">
+                            <i data-feather="globe" class="w-4 h-4 mr-1"></i>
+                            <span id="current-lang">English</span>
+                            <i data-feather="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="language-dropdown bg-white shadow-lg rounded-lg border border-gray-200 mt-2 py-2 overflow-hidden">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200" onclick="switchLanguage('en'); return false;">🇺🇸 English</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200" onclick="switchLanguage('id'); return false;">🇮🇩 Bahasa Indonesia</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden py-2" id="mobile-menu">
+                <a href="index.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="Home" data-id="Beranda">Home</a>
+                <a href="about.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="About Us" data-id="Tentang Kami">About Us</a>
+                <a href="services.html" class="block py-2 px-4 text-primary font-medium nav-active" data-en="Services" data-id="Layanan">Services</a>
+                <a href="properties.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="Properties" data-id="Properti">Properties</a>
+                <a href="contact.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="Contact" data-id="Kontak">Contact</a>
+                <div class="px-4 py-2">
+                    <select class="w-full border rounded px-3 py-2 text-sm" id="mobile-language-select">
+                        <option value="en">English</option>
+                        <option value="id">Bahasa Indonesia</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80');"></div>
+        <div class="container mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4 page-header-text" data-en="What We Do" data-id="Apa yang Kami Lakukan">What We Do</h1>
+            <p class="text-xl max-w-3xl mx-auto page-header-subtitle" data-en="Comprehensive real estate solutions tailored for cross-border investors" data-id="Solusi real estate komprehensif yang disesuaikan untuk investor lintas negara">Comprehensive real estate solutions tailored for cross-border investors</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="space-y-12">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100" data-aos="fade-up">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 font-bold text-lg flex-shrink-0">1</div>
+                        <div class="flex-grow">
+                            <h3 class="font-heading font-bold text-xl mb-4 text-primary" data-en="Cross-Border Investment Advisory" data-id="Penasihat Investasi Lintas Negara">Cross-Border Investment Advisory</h3>
+                            <p class="text-base text-gray-700 leading-relaxed" data-en="We guide clients through the comparative legal, regulatory, taxation and cultural landscapes of property investment in different jurisdictions - Indonesia, Singapore, Malaysia (Johor, Kuala Lumpur and Selangor) as well as UAE (Dubai). From minimum thresholds for foreign buyers in Johor to ownership rules and visa or permit implications, we provide clarity so you can invest with confidence." data-id="Kami memandu klien melalui perbandingan legal, regulasi, perpajakan, dan lansekap budaya investasi properti di berbagai yurisdiksi - Indonesia, Singapura, Malaysia (Johor, Kuala Lumpur dan Selangor) serta UAE (Dubai). Dari ambang batas minimum untuk pembeli asing di Johor hingga aturan kepemilikan dan implikasi visa atau izin, kami memberikan kejelasan sehingga Anda dapat berinvestasi dengan percaya diri.">We guide clients through the comparative legal, regulatory, taxation and cultural landscapes of property investment in different jurisdictions - Indonesia, Singapore, Malaysia (Johor, Kuala Lumpur and Selangor) as well as UAE (Dubai). From minimum thresholds for foreign buyers in Johor to ownership rules and visa or permit implications, we provide clarity so you can invest with confidence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 font-bold text-lg flex-shrink-0">2</div>
+                        <div class="flex-grow">
+                            <h3 class="font-heading font-bold text-xl mb-4 text-primary" data-en="Tailored Property Scouting & Portfolio Matching" data-id="Pencarian Properti Khusus & Pencocokan Portofolio">Tailored Property Scouting & Portfolio Matching</h3>
+                            <p class="text-base text-gray-700 leading-relaxed" data-en="Every investor has unique criteria for risk tolerance, investment horizon, preferred asset type (residential, commercial, mixed-used and industrial), and return of investment expectations. We specialize in matching those with curated listings in Batam and greater Jakarta, Singapore, Johor, Kuala Lumpur, Selangor or Dubai, ensuring balanced between appreciation potential rental yield and ease of management." data-id="Setiap investor memiliki kriteria unik untuk toleransi risiko, horizon investasi, jenis aset yang disukai (residensial, komersial, campuran dan industri), dan ekspektasi return investasi. Kami mengkhususkan diri dalam mencocokkan kriteria tersebut dengan listing terpilih di Batam dan Jakarta Raya, Singapura, Johor, Kuala Lumpur, Selangor atau Dubai, memastikan keseimbangan antara potensi apresiasi, hasil sewa, dan kemudahan pengelolaan.">Every investor has unique criteria for risk tolerance, investment horizon, preferred asset type (residential, commercial, mixed-used and industrial), and return of investment expectations. We specialize in matching those with curated listings in Batam and greater Jakarta, Singapore, Johor, Kuala Lumpur, Selangor or Dubai, ensuring balanced between appreciation potential rental yield and ease of management.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 font-bold text-lg flex-shrink-0">3</div>
+                        <div class="flex-grow">
+                            <h3 class="font-heading font-bold text-xl mb-4 text-primary" data-en="Due Diligence & Transaction Management" data-id="Uji Tuntas & Manajemen Transaksi">Due Diligence & Transaction Management</h3>
+                            <p class="text-base text-gray-700 leading-relaxed" data-en="We ensure transparency & integrity on land/title verification, compliance checks, structuring of deals, cross-border payment logistics, legal assistance and local taxation matters, together with our consortium of professional advisors and partners. For example, foreign property investors planning to purchase landed properties in Singapore will require state consent while in Batam, Johor and Kuala Lumpur, recent regulatory shifts have eased foreign ownership thresholds and clarified registration, which we keep abreast of." data-id="Kami memastikan transparansi & integritas pada verifikasi tanah/sertifikat, pemeriksaan kepatuhan, struktur penawaran, logistik pembayaran lintas negara, bantuan hukum dan masalah perpajakan lokal, bersama dengan konsorsium penasihat profesional dan mitra kami. Sebagai contoh, investor properti asing yang berencana membeli properti landed di Singapura akan memerlukan persetujuan negara, sementara di Batam, Johor dan Kuala Lumpur, perubahan regulasi terbaru telah memudahkan ambang batas kepemilikan asing dan memperjelas pendaftaran, yang selalu kami ikuti perkembangannya.">We ensure transparency & integrity on land/title verification, compliance checks, structuring of deals, cross-border payment logistics, legal assistance and local taxation matters, together with our consortium of professional advisors and partners. For example, foreign property investors planning to purchase landed properties in Singapore will require state consent while in Batam, Johor and Kuala Lumpur, recent regulatory shifts have eased foreign ownership thresholds and clarified registration, which we keep abreast of.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 font-bold text-lg flex-shrink-0">4</div>
+                        <div class="flex-grow">
+                            <h3 class="font-heading font-bold text-xl mb-4 text-primary" data-en="After-Sales Service & Asset Management" data-id="Layanan Purna Jual & Manajemen Aset">After-Sales Service & Asset Management</h3>
+                            <p class="text-base text-gray-700 leading-relaxed" data-en="The process of purchasing and owning real estate is one thing. Optimizing the investment is another. We provide property management, tenant sourcing, maintenance oversight and regular performance reporting. If you are abroad (in Singapore, Malaysia Dubai or elsewhere), we act as your local representative to protect your investment." data-id="Proses pembelian dan kepemilikan real estate adalah satu hal. Mengoptimalkan investasi adalah hal lain. Kami menyediakan manajemen properti, pencarian penyewa, pengawasan pemeliharaan dan pelaporan kinerja berkala. Jika Anda berada di luar negeri (di Singapura, Malaysia, Dubai atau tempat lain), kami bertindak sebagai perwakilan lokal Anda untuk melindungi investasi Anda.">The process of purchasing and owning real estate is one thing. Optimizing the investment is another. We provide property management, tenant sourcing, maintenance oversight and regular performance reporting. If you are abroad (in Singapore, Malaysia Dubai or elsewhere), we act as your local representative to protect your investment.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-start mb-6">
+                        <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 font-bold text-lg flex-shrink-0">5</div>
+                        <div class="flex-grow">
+                            <h3 class="font-heading font-bold text-xl mb-4 text-primary" data-en="Market Insights & Strategic Forecasts" data-id="Wawasan Pasar & Prakiraan Strategis">Market Insights & Strategic Forecasts</h3>
+                            <p class="text-base text-gray-700 leading-relaxed" data-en="At REEX, our real estate consultants don't just show properties. We deliver key market information and intelligence such as what is driving demand (eg. Singapore and Malaysian investors in Johor, foreign interest in Batam's coastal, SEZ and mixed-use zones), what infrastructure or policy changes may affect your investments and where the 'next-hot' submarkets are (eg. the first Jakarta - Bandung high speed rail as well as the second Jakarta - Surabaya high speed rail currently under negotiation)." data-id="Di REEX, konsultan real estate kami tidak hanya menunjukkan properti. Kami memberikan informasi dan intelijen pasar kunci seperti apa yang mendorong permintaan (misalnya investor Singapura dan Malaysia di Johor, minat asing di zona pesisir, SEZ dan mixed-use Batam), perubahan infrastruktur atau kebijakan apa yang dapat mempengaruhi investasi Anda dan di mana submarket 'hot berikutnya' berada (misalnya kereta cepat Jakarta - Bandung yang pertama serta kereta cepat Jakarta - Surabaya yang kedua yang sedang dalam negosiasi).">At REEX, our real estate consultants don't just show properties. We deliver key market information and intelligence such as what is driving demand (eg. Singapore and Malaysian investors in Johor, foreign interest in Batam's coastal, SEZ and mixed-use zones), what infrastructure or policy changes may affect your investments and where the "next-hot" submarkets are (eg. the first Jakarta - Bandung high speed rail as well as the second Jakarta - Surabaya high speed rail currently under negotiation).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Sets Us Apart Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-heading font-bold mb-4 text-primary" data-en="What Sets Us Apart" data-id="Apa yang Membedakan Kami">What Sets Us Apart</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Boutique & Personalized -->
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="users" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-3 text-primary" data-en="Boutique & Personalized" data-id="Butik & Personal">Boutique & Personalized</h3>
+                    <p class="text-base text-gray-700" data-en="We prefer quality over quantity and so each client will get individual attention, custom strategy and continuous support." data-id="Kami lebih mengutamakan kualitas daripada kuantitas sehingga setiap klien akan mendapat perhatian individual, strategi khusus dan dukungan berkelanjutan.">We prefer quality over quantity and so each client will get individual attention, custom strategy and continuous support.</p>
+                </div>
+
+                <!-- Cross-Jurisdiction Expertise -->
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="globe" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-3 text-primary" data-en="Cross-Jurisdiction Expertise" data-id="Keahlian Lintas Yurisdiksi">Cross-Jurisdiction Expertise</h3>
+                    <p class="text-base text-gray-700" data-en="We have deep local roots and we speak the languages of each of the markets that we are focusing on, which is further strengthened and enhanced with strong networks and trusted partners in legal, notaries, professional advisors, financial experts and developers." data-id="Kami memiliki akar lokal yang dalam dan kami berbicara dalam bahasa setiap pasar yang kami fokuskan, yang diperkuat dan ditingkatkan dengan jaringan kuat dan mitra terpercaya di bidang hukum, notaris, penasihat profesional, ahli keuangan dan pengembang.">We have deep local roots and we speak the languages of each of the markets that we are focusing on, which is further strengthened and enhanced with strong networks and trusted partners in legal, notaries, professional advisors, financial experts and developers.</p>
+                </div>
+
+                <!-- Transparent & Ethical Practices -->
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="shield" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-3 text-primary" data-en="Transparent & Ethical Practices" data-id="Praktik Transparan & Etis">Transparent & Ethical Practices</h3>
+                    <p class="text-base text-gray-700" data-en="Clear cost breakdowns, no surprises. We ensure that clients understand all fees, restrictions and timelines. We apply the Singapore Professional Standard and Code of Ethics." data-id="Rincian biaya yang jelas, tanpa kejutan. Kami memastikan klien memahami semua biaya, pembatasan dan jadwal. Kami menerapkan Standar Profesional dan Kode Etik Singapura.">Clear cost breakdowns, no surprises. We ensure that clients understand all fees, restrictions and timelines. We apply the Singapore Professional Standard and Code of Ethics.</p>
+                </div>
+
+                <!-- Data Driven - Vision Oriented -->
+                <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="trending-up" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-3 text-primary" data-en="Data Driven - Vision Oriented" data-id="Berbasis Data - Berorientasi Visi">Data Driven - Vision Oriented</h3>
+                    <p class="text-base text-gray-700" data-en="We constantly keep abreast of the current trends and data, new policies and emerging regulatory frameworks. We help you see not just what is, but what is coming - where rates of return are growing, where supply is tightening, where capital flows are heading and merging." data-id="Kami terus mengikuti tren dan data terkini, kebijakan baru dan kerangka regulasi yang muncul. Kami membantu Anda melihat tidak hanya apa yang ada, tetapi apa yang akan datang - di mana tingkat pengembalian sedang berkembang, di mana pasokan mengencang, ke mana aliran modal menuju dan bergabung.">We constantly keep abreast of the current trends and data, new policies and emerging regulatory frameworks. We help you see not just what is, but what is coming - where rates of return are growing, where supply is tightening, where capital flows are heading and merging.</p>
+                </div>
+
+                <!-- A Long-Term Partner -->
+                <div class="bg-gray-50 p-6 rounded-lg md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="heart" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg mb-3 text-primary" data-en="A Long-Term Partner" data-id="Mitra Jangka Panjang">A Long-Term Partner</h3>
+                    <p class="text-base text-gray-700" data-en="Whether your goal is to hold property for rental income, capitalize on capital appreciation, diversify your assets across countries, or even reposition in response to changing global dynamics, we are with you for the journey, not just the transaction." data-id="Apakah tujuan Anda adalah memiliki properti untuk pendapatan sewa, memanfaatkan apresiasi modal, mendiversifikasi aset Anda di berbagai negara, atau bahkan reposisi dalam merespons dinamika global yang berubah, kami bersama Anda dalam perjalanan, bukan hanya transaksi.">Whether your goal is to hold property for rental income, capitalize on capital appreciation, diversify your assets across countries, or even reposition in response to changing global dynamics, we are with you for the journey, not just the transaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-heading font-bold mb-4 text-primary" data-en="Our Process" data-id="Proses Kami">Our Process</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-en="A systematic approach to cross-border real estate investment" data-id="Pendekatan sistematis untuk investasi real estate lintas negara">A systematic approach to cross-border real estate investment</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">1</div>
+                    <h3 class="font-heading font-bold text-lg mb-3" data-en="Consultation" data-id="Konsultasi">Consultation</h3>
+                    <p class="text-gray-600" data-en="Understanding your investment goals and requirements" data-id="Memahami tujuan dan persyaratan investasi Anda">Understanding your investment goals and requirements</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">2</div>
+                    <h3 class="font-heading font-bold text-lg mb-3" data-en="Market Analysis" data-id="Analisis Pasar">Market Analysis</h3>
+                    <p class="text-gray-600" data-en="Comprehensive market research and opportunity identification" data-id="Riset pasar komprehensif dan identifikasi peluang">Comprehensive market research and opportunity identification</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">3</div>
+                    <h3 class="font-heading font-bold text-lg mb-3" data-en="Property Selection" data-id="Seleksi Properti">Property Selection</h3>
+                    <p class="text-gray-600" data-en="Curated property options matching your investment criteria" data-id="Opsi properti terpilih yang sesuai dengan kriteria investasi Anda">Curated property options matching your investment criteria</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">4</div>
+                    <h3 class="font-heading font-bold text-lg mb-3" data-en="Transaction & Beyond" data-id="Transaksi & Selanjutnya">Transaction & Beyond</h3>
+                    <p class="text-gray-600" data-en="Seamless transaction management and ongoing support" data-id="Manajemen transaksi yang mulus dan dukungan berkelanjutan">Seamless transaction management and ongoing support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-heading font-bold mb-4" data-en="Ready to Get Started?" data-id="Siap untuk Memulai?">Ready to Get Started?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto" data-en="Let our experts guide you through your cross-border real estate investment journey" data-id="Biarkan para ahli kami memandu Anda melalui perjalanan investasi real estate lintas negara">Let our experts guide you through your cross-border real estate investment journey</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="contact.html" class="bg-white text-primary hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition duration-300" data-en="Book Consultation" data-id="Pesan Konsultasi">Book Consultation</a>
+                <a href="properties.html" class="border-2 border-white text-white hover:bg-white hover:text-primary font-medium py-3 px-8 rounded-lg transition duration-300" data-en="View Properties" data-id="Lihat Properti">View Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl font-heading font-bold mb-4">REEX</h3>
+                    <p class="text-gray-400 mb-4" data-en="Where Real Estate Meet and Exchange" data-id="Tempat Real Estate Bertemu dan Bertukar">Where Real Estate Meet and Exchange</p>
+                    <p class="text-gray-400" data-en="Boutique real estate agency specializing in cross-border investments." data-id="Agen real estate butik yang mengkhususkan diri dalam investasi lintas negara.">Boutique real estate agency specializing in cross-border investments.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold mb-4" data-en="Quick Links" data-id="Tautan Cepat">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition" data-en="Home" data-id="Beranda">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition" data-en="About Us" data-id="Tentang Kami">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition" data-en="Services" data-id="Layanan">Services</a></li>
+                        <li><a href="properties.html" class="text-gray-400 hover:text-white transition" data-en="Properties" data-id="Properti">Properties</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition" data-en="Contact" data-id="Kontak">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold mb-4" data-en="Services" data-id="Layanan">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Investment Advisory</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Property Scouting</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Due Diligence</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Asset Management</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold mb-4" data-en="Contact Us" data-id="Hubungi Kami">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-2"></i>
+                            <span>Anggrek Mas 3 Blok A6 37, Batam Center</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                            <span>ask@reex.co.id</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-4 h-4 mr-2"></i>
+                            <span>+62 857 6677 5757</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.facebook.com/profile.php?id=100095464770735" target="_blank" class="text-gray-400 hover:text-white transition"><i data-feather="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 REEX Real Estate. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Code of Ethics</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

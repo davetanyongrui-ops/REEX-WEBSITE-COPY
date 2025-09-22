@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties - REEX Real Estate</title>
+    <meta name="description" content="Featured properties and investment opportunities across Batam, Singapore, Johor, Malaysia, and Dubai">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        secondary: '#1E3A8A',
+                        accent: '#3B82F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white bg-opacity-85 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity duration-300 cursor-pointer">
+                        <img src="https://i.imgur.com/QyeYVR3.jpeg" alt="REEX Logo" class="h-10 w-auto">
+                    </a>
+                    <span class="ml-3 text-sm text-primary font-semibold hidden md:block bg-blue-50 px-3 py-1 rounded-full" data-en="Where Real Estate Meet and Exchange" data-id="Tempat Real Estate Bertemu dan Bertukar">Where Real Estate Meet and Exchange</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-12">
+                    <a href="index.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Home" data-id="Beranda">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="About Us" data-id="Tentang Kami">About Us</a>
+                    <a href="services.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Services" data-id="Layanan">Services</a>
+                    <a href="properties.html" class="text-primary font-medium nav-active px-3 py-2 rounded-lg transition-all duration-300 hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Properties" data-id="Properti">Properties</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-primary transition-all duration-300 px-3 py-2 rounded-lg hover:bg-blue-50 hover:shadow-md transform hover:scale-105 text-sm" data-en="Contact" data-id="Kontak">Contact</a>
+                    
+                    <div class="language-switcher ml-4">
+                        <button class="flex items-center text-gray-700 hover:text-primary transition-colors duration-200" id="language-button">
+                            <i data-feather="globe" class="w-4 h-4 mr-1"></i>
+                            <span id="current-lang">English</span>
+                            <i data-feather="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div class="language-dropdown bg-white shadow-lg rounded-lg border border-gray-200 mt-2 py-2 overflow-hidden">
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200" onclick="switchLanguage('en'); return false;">🇺🇸 English</a>
+                            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors duration-200" onclick="switchLanguage('id'); return false;">🇮🇩 Bahasa Indonesia</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                    <i data-feather="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden py-2" id="mobile-menu">
+                <a href="index.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="Home" data-id="Beranda">Home</a>
+                <a href="about.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="About Us" data-id="Tentang Kami">About Us</a>
+                <a href="services.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="Services" data-id="Layanan">Services</a>
+                <a href="properties.html" class="block py-2 px-4 text-primary font-medium nav-active" data-en="Properties" data-id="Properti">Properties</a>
+                <a href="contact.html" class="block py-2 px-4 text-gray-600 hover:text-primary transition" data-en="Contact" data-id="Kontak">Contact</a>
+                <div class="px-4 py-2">
+                    <select class="w-full border rounded px-3 py-2 text-sm" id="mobile-language-select">
+                        <option value="en">English</option>
+                        <option value="id">Bahasa Indonesia</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80');"></div>
+        <div class="container mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4 page-header-text" data-en="Featured Properties" data-id="Properti Unggulan">Featured Properties</h1>
+            <p class="text-xl max-w-3xl mx-auto page-header-subtitle" data-en="Explore our curated selection of investment opportunities across strategic markets" data-id="Jelajahi pilihan kurasi peluang investasi kami di pasar strategis">Explore our curated selection of investment opportunities across strategic markets</p>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="property-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="Luxury Condominium" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-bold text-lg" data-en="Waterfront Condominium" data-id="Kondominium Tepi Laut">Waterfront Condominium</h3>
+                            <span class="bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded">Batam</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4" data-en="Luxury waterfront living with panoramic sea views and resort-style amenities" data-id="Hunian mewah tepi laut dengan pemandangan laut panorama dan fasilitas bergaya resort">Luxury waterfront living with panoramic sea views and resort-style amenities</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-bold text-primary text-xl">$350,000</span>
+                            <span class="text-green-600 text-sm font-medium">8.5% ROI</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm text-gray-600 mb-4">
+                            <div><i data-feather="bed" class="w-4 h-4 mx-auto mb-1"></i>2 Beds</div>
+                            <div><i data-feather="bath" class="w-4 h-4 mx-auto mb-1"></i>2 Baths</div>
+                            <div><i data-feather="square" class="w-4 h-4 mx-auto mb-1"></i>85m²</div>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded transition duration-300" data-en="View Details" data-id="Lihat Detail">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="property-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="Commercial Space" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-bold text-lg" data-en="Prime Commercial Space" data-id="Ruang Komersial Prima">Prime Commercial Space</h3>
+                            <span class="bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded">Singapore</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4" data-en="High-traffic retail space in central business district with excellent connectivity" data-id="Ruang ritel dengan lalu lintas tinggi di pusat bisnis dengan konektivitas yang sangat baik">High-traffic retail space in central business district with excellent connectivity</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-bold text-primary text-xl">$1.2M</span>
+                            <span class="text-green-600 text-sm font-medium">12% ROI</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm text-gray-600 mb-4">
+                            <div><i data-feather="building" class="w-4 h-4 mx-auto mb-1"></i>Retail</div>
+                            <div><i data-feather="users" class="w-4 h-4 mx-auto mb-1"></i>High Traffic</div>
+                            <div><i data-feather="square" class="w-4 h-4 mx-auto mb-1"></i>150m²</div>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded transition duration-300" data-en="View Details" data-id="Lihat Detail">View Details</a>
+                    </div>
+                </div>
+                
+                <div class="property-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="Villa" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-bold text-lg" data-en="Luxury Golf Villa" data-id="Vila Golf Mewah">Luxury Golf Villa</h3>
+                            <span class="bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded">Johor</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4" data-en="Exclusive gated community with golf course access and luxury amenities" data-id="Komunitas gated eksklusif dengan akses lapangan golf dan fasilitas mewah">Exclusive gated community with golf course access and luxury amenities</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-bold text-primary text-xl">$850,000</span>
+                            <span class="text-green-600 text-sm font-medium">6.8% ROI</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm text-gray-600 mb-4">
+                            <div><i data-feather="bed" class="w-4 h-4 mx-auto mb-1"></i>4 Beds</div>
+                            <div><i data-feather="bath" class="w-4 h-4 mx-auto mb-1"></i>3 Baths</div>
+                            <div><i data-feather="square" class="w-4 h-4 mx-auto mb-1"></i>280m²</div>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded transition duration-300" data-en="View Details" data-id="Lihat Detail">View Details</a>
+                    </div>
+                </div>
+
+                <div class="property-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="Modern Apartment" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-bold text-lg" data-en="Modern City Apartment" data-id="Apartemen Kota Modern">Modern City Apartment</h3>
+                            <span class="bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded">Malaysia</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4" data-en="Contemporary living in vibrant city center with modern amenities and easy access" data-id="Hunian kontemporer di pusat kota yang dinamis dengan fasilitas modern dan akses mudah">Contemporary living in vibrant city center with modern amenities and easy access</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-bold text-primary text-xl">$180,000</span>
+                            <span class="text-green-600 text-sm font-medium">9.2% ROI</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm text-gray-600 mb-4">
+                            <div><i data-feather="bed" class="w-4 h-4 mx-auto mb-1"></i>1 Bed</div>
+                            <div><i data-feather="bath" class="w-4 h-4 mx-auto mb-1"></i>1 Bath</div>
+                            <div><i data-feather="square" class="w-4 h-4 mx-auto mb-1"></i>55m²</div>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded transition duration-300" data-en="View Details" data-id="Lihat Detail">View Details</a>
+                    </div>
+                </div>
+
+                <div class="property-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="Dubai Penthouse" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-bold text-lg" data-en="Luxury Penthouse" data-id="Penthouse Mewah">Luxury Penthouse</h3>
+                            <span class="bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded">Dubai</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4" data-en="Premium penthouse with stunning city skyline views and world-class amenities" data-id="Penthouse premium dengan pemandangan skyline kota yang menakjubkan dan fasilitas kelas dunia">Premium penthouse with stunning city skyline views and world-class amenities</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-bold text-primary text-xl">$2.8M</span>
+                            <span class="text-green-600 text-sm font-medium">7.5% ROI</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm text-gray-600 mb-4">
+                            <div><i data-feather="bed" class="w-4 h-4 mx-auto mb-1"></i>3 Beds</div>
+                            <div><i data-feather="bath" class="w-4 h-4 mx-auto mb-1"></i>4 Baths</div>
+                            <div><i data-feather="square" class="w-4 h-4 mx-auto mb-1"></i>200m²</div>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded transition duration-300" data-en="View Details" data-id="Lihat Detail">View Details</a>
+                    </div>
+                </div>
+
+                <div class="property-card bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 transition duration-300" data-aos="fade-up" data-aos-delay="600">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="Industrial Property" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-bold text-lg" data-en="Industrial Warehouse" data-id="Gudang Industri">Industrial Warehouse</h3>
+                            <span class="bg-blue-100 text-primary text-xs font-medium px-2 py-1 rounded">Batam</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4" data-en="Strategic industrial facility in free trade zone with excellent logistics connectivity" data-id="Fasilitas industri strategis di zona perdagangan bebas dengan konektivitas logistik yang sangat baik">Strategic industrial facility in free trade zone with excellent logistics connectivity</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-bold text-primary text-xl">$950,000</span>
+                            <span class="text-green-600 text-sm font-medium">11% ROI</span>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm text-gray-600 mb-4">
+                            <div><i data-feather="box" class="w-4 h-4 mx-auto mb-1"></i>Warehouse</div>
+                            <div><i data-feather="truck" class="w-4 h-4 mx-auto mb-1"></i>Logistics</div>
+                            <div><i data-feather="square" class="w-4 h-4 mx-auto mb-1"></i>1200m²</div>
+                        </div>
+                        <a href="contact.html" class="block w-full text-center bg-primary hover:bg-secondary text-white font-medium py-2 px-4 rounded transition duration-300" data-en="View Details" data-id="Lihat Detail">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-heading font-bold mb-4" data-en="Interested in Our Properties?" data-id="Tertarik dengan Properti Kami?">Interested in Our Properties?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto" data-en="Get detailed information and schedule property viewings with our expert team" data-id="Dapatkan informasi detail dan jadwalkan viewing properti dengan tim ahli kami">Get detailed information and schedule property viewings with our expert team</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="contact.html" class="bg-white text-primary hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition duration-300" data-en="Contact Our Team" data-id="Hubungi Tim Kami">Contact Our Team</a>
+                <a href="services.html" class="border-2 border-white text-white hover:bg-white hover:text-primary font-medium py-3 px-8 rounded-lg transition duration-300" data-en="Our Services" data-id="Layanan Kami">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-xl font-heading font-bold mb-4">REEX</h3>
+                    <p class="text-gray-400 mb-4" data-en="Where Real Estate Meet and Exchange" data-id="Tempat Real Estate Bertemu dan Bertukar">Where Real Estate Meet and Exchange</p>
+                    <p class="text-gray-400" data-en="Boutique real estate agency specializing in cross-border investments." data-id="Agen real estate butik yang mengkhususkan diri dalam investasi lintas negara.">Boutique real estate agency specializing in cross-border investments.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold mb-4" data-en="Quick Links" data-id="Tautan Cepat">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition" data-en="Home" data-id="Beranda">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition" data-en="About Us" data-id="Tentang Kami">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition" data-en="Services" data-id="Layanan">Services</a></li>
+                        <li><a href="properties.html" class="text-gray-400 hover:text-white transition" data-en="Properties" data-id="Properti">Properties</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition" data-en="Contact" data-id="Kontak">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold mb-4" data-en="Services" data-id="Layanan">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Investment Advisory</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Property Scouting</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Due Diligence</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Asset Management</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-heading font-bold mb-4" data-en="Contact Us" data-id="Hubungi Kami">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-2"></i>
+                            <span>Anggrek Mas 3 Blok A6 37, Batam Center</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                            <span>ask@reex.co.id</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-4 h-4 mr-2"></i>
+                            <span>+62 857 6677 5757</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="flex space-x-4 mt-4">
+                        <a href="https://www.facebook.com/profile.php?id=100095464770735" target="_blank" class="text-gray-400 hover:text-white transition"><i data-feather="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 REEX Real Estate. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Code of Ethics</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
